@@ -30,7 +30,12 @@ body {
   text-align: center;
   position: relative;
   z-index: 100001;
+  transition: box-shadow 0.9s cubic-bezier(.4,0,.2,1);
 }
+.container.no-glow {
+  box-shadow: 0 0 0px 0px #0000;
+}
+
 #main-title {
   font-size: 3rem;
   letter-spacing: 0.15em;

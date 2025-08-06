@@ -1,0 +1,12 @@
+{
+  "name": "eternal-hearth",
+  "version": "1.0.0",
+  "description": "Super simple Node.js site for FFXIV Eternal Hearth Freecompany",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

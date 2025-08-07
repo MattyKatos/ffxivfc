@@ -1,3 +1,6 @@
+// Load polyfills first, before any other modules
+require('./polyfill.js');
+
 // DJ Jippity’s Node.js Express server for Eternal Hearth
 const express = require('express');
 const path = require('path');
@@ -7,16 +10,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Simple File class polyfill for Node.js environments
-if (typeof global.File === 'undefined') {
-  global.File = class File {
-    constructor(bits, name, options = {}) {
-      this.name = name;
-      this.lastModified = options.lastModified || Date.now();
-      this.type = options.type || '';
-      this._bits = bits;
-    }
-  };
-}
+// if (typeof global.File === 'undefined') {
+//   global.File = class File {
+//     constructor(bits, name, options = {}) {
+//       this.name = name;
+//       this.lastModified = options.lastModified || Date.now();
+//       this.type = options.type || '';
+//       this._bits = bits;
+//     }
+//   };
+// }
 
 app.use(express.static(path.join(__dirname, 'public')));
 

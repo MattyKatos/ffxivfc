@@ -6,6 +6,18 @@ const cheerio = require('cheerio');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Simple File class polyfill for Node.js environments
+if (typeof global.File === 'undefined') {
+  global.File = class File {
+    constructor(bits, name, options = {}) {
+      this.name = name;
+      this.lastModified = options.lastModified || Date.now();
+      this.type = options.type || '';
+      this._bits = bits;
+    }
+  };
+}
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Cache for FC members to avoid repeated scraping
